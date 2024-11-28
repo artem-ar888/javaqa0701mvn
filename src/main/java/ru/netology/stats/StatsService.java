@@ -1,19 +1,15 @@
 package ru.netology.stats;
 
-import java.util.Arrays;
-
 public class StatsService {
 
     // 1.
     public long sumSales(long[] sales) {
-        /*
         long sumAllSales = 0;
         for (long monthSales : sales) {
             sumAllSales = sumAllSales + monthSales;
         }
         return sumAllSales;
-        */
-        return Arrays.stream(sales).sum();
+        // return Arrays.stream(sales).sum();
     }
 
     // 2.
@@ -46,8 +42,9 @@ public class StatsService {
     // 5.
     public int amountOfMonthsBelowAverage(long[] sales) {
         int sumMonths = 0;
+        long averageSales = averageMonthlySales(sales);
         for (long monthSales : sales) {
-            if (monthSales < averageMonthlySales(sales)) {
+            if (monthSales < averageSales) {
                 sumMonths++;
             }
         }
@@ -57,8 +54,9 @@ public class StatsService {
     // 6.
     public int amountOfMonthsAboveAverage(long[] sales) {
         int sumMonths = 0;
+        long averageSales = averageMonthlySales(sales);
         for (long monthSales : sales) {
-            if (monthSales > averageMonthlySales(sales)) {
+            if (monthSales > averageSales) {
                 sumMonths++;
             }
         }
